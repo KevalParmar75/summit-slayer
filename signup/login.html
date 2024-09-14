@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalenetTuner - Sign Up / Log In</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script> <!-- Google Sign-In Script -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h1>TalenetTuner</h1>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="form-container">
+                <input type="radio" id="signup" name="tab" checked>
+                <label for="signup" class="tab-label">Sign Up</label>
+
+                <input type="radio" id="login" name="tab">
+                <label for="login" class="tab-label">Log In</label>
+
+                <div class="form-content">
+                    <!-- Sign-Up Form -->
+                    <div id="signup-form" class="form">
+                        <form action="/signup" method="POST">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="email" placeholder="Email Address" required>
+                            <input type="password" placeholder="Password" required>
+                            <input type="password" placeholder="Confirm Password" required>
+                            <button type="submit">Sign Up</button>
+                            <p>Already have an account? <a href="#" id="show-login">Log in here</a></p>
+                            <div id="g_id_onload"
+                                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                                 data-context="signup"
+                                 data-ux_mode="popup"
+                                 data-login_uri="YOUR_LOGIN_URI">
+                            </div>
+                            <div class="g_id_signin" data-type="standard"></div>
+                        </form>
+                    </div>
+
+                    <!-- Log-In Form -->
+                    <div id="login-form" class="form">
+                        <form action="/login" method="POST">
+                            <input type="email" placeholder="Email Address" required>
+                            <input type="password" placeholder="Password" required>
+                            <button type="submit">Log In</button>
+                            <p>Don't have an account? <a href="#" id="show-signup">Sign up here</a></p>
+                            <p><a href="#">Forgot Password?</a></p>
+                            <div id="g_id_onload"
+                                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                                 data-context="signin"
+                                 data-ux_mode="popup"
+                                 data-login_uri="YOUR_LOGIN_URI">
+                            </div>
+                            <div class="g_id_signin" data-type="standard"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Guest Access Button -->
+                <div class="guest-access">
+                    <button id="guest-access-btn">Continue as Guest</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 TalenetTuner | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
