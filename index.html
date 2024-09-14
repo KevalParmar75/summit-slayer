@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>AI Code Review</title>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Code Review</h1>
+        <form>
+            <label for="language">Language / Software</label>
+            <select id="language" name="language">
+                <option value="java">Java</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="python">Python</option>
+            </select>
+
+            <label for="code">Code to Review</label>
+            <textarea id="code" name="code" placeholder="Copy your code here..."></textarea>
+
+            <div class="options">
+                <label for="review-type">I want</label>
+                <select id="review-type" name="review-type">
+                    <option value="full-review">Full Code Review</option>
+                    <option value="bug-detection">Bug Detection</option>
+                    <option value="code-explanation">Code Explanation</option>
+                </select>
+
+                <label for="tone">Tone</label>
+                <select id="tone" name="tone">
+                    <option value="professional">Professional</option>
+                    <option value="casual">Casual</option>
+                </select>
+
+                <label for="output">Output in</label>
+                <select id="output" name="output">
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
