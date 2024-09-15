@@ -10,10 +10,7 @@ Technologies Used
 Backend: Flask
 Logic: Python
 Virtual Environment: Anaconda
-Installation
-Clone the Repository:
-Bash
-git clone https://github.com/your-username/talent-tuner.git
+Installation.
 Use code with caution.
 
 Create a Virtual Environment before using this code and make sure you are using anaconda for environment.
@@ -29,6 +26,7 @@ Libraries
 The following libraries are essential for the project:
 
 Flask: A lightweight web framework for Python.
+
 Streamlit: for building fasst frontend for our python application
 
 Contributing 
