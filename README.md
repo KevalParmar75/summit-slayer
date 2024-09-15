@@ -32,4 +32,5 @@ Streamlit: for building fasst frontend for our python application
 Contributing 
 Contributions are welcome! Please feel free to fork the repository, make your changes, and submit a pull request.
 
-
+important thing 
+code review and linkedin sections are not working so work accordingly.
