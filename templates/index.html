@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalentTuner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        function startStreamlit() {
+  fetch('/start_streamlit')
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'Streamlit app started') {
+        // Check if window already exists
+        const existingWindow = window.open('', '_blank');
+        if (existingWindow && !existingWindow.closed) {
+          existingWindow.location.href = 'http://localhost:8501';
+        } else {
+          window.open('http://localhost:8501', '_blank');
+        }
+      }
+    });
+}
+        // Copy email to clipboard function
+        function copyToClipboard(text) {
+            const dummy = document.createElement('textarea');
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('Email copied to clipboard: ' + text);
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="{{ url_for('static', filename='images/logo3.png') }}" width="50px" height="50px"
+                    alt="TalentTuner Logo" class="logo">
+                <span class="brand-name">TalentTuner</span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li class="contact-item">
+                    <a href="javascript:void(0)" onclick="copyToClipboard('summitslayer10@gmail.com')">Contact</a>
+                    <div class="contact-tooltip">summitslayer10@gmail.com</div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Main Content Section -->
+    <section class="bg-light pt-5 text-center">
+        <div class="container">
+            <div class="pt-5 row">
+                <div class="col-lg-8 col-xl-6 mx-auto">
+                    <h1 class="display-4 fst-italic fw-normal mb-3 text-dark">
+                        <b>Meet your AI assistant and simplify your life</b>
+                    </h1>
+                    <p class="bg-dark fw-light h-auto h4 lh-base mb-3 rounded-pill text-white w-auto mx-auto px-4 py-2">
+                        Made by Summit Slayer
+                    </p>
+                </div>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/img.png') }}" alt="AI Assistant Image">
+            </div>
+
+            <!-- Feature Cards Section -->
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="icon">&#x1F4BB;</div> <!-- Example icon -->
+                    <h3>Resume review with AI</h3>
+                    <p>Ensure that your resume is optimized for clarity, relevance, and impact</p>
+                    <button onclick="startStreamlit()">Open Streamlit App</button>
+                    <!-- <iframe id="streamlit-frame" src="http://localhost:8501" width="100%" height="800px" -->
+                        <!-- style="display:none;"></iframe> -->
+                    <!-- <a href="login.html">Learn More</a> -->
+
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">&#x1F916;</div> <!-- Example icon -->
+                    <h3>Code review with AI</h3>
+                    <p>Improve code quality by analyzing structure, efficiency, and potential errors</p>
+                    <a href="login.html">codereview</a>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">&#x1F4E5;</div> <!-- Example icon -->
+                    <h3>LinkedIn review</h3>
+                    <p>Enhance your profile by analyzing content, keywords, and overall presentation</p>
+                    <a href="login.html">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Centered Text Content -->
+        <div class="row content-center">
+            <p>In today's competitve landscape, standing out is crucial. Our AI-powered app simplifies career growth by
+                offering smart resume reviews, code assessments, and Linkedin optimization.
+                Beyond that, it connects students with industry professionals, brindging the gap between talent
+                and opportunity.</p>
+        </div>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p class="no">&copy; 2024 TalentTuner. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
