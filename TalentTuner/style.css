@@ -1,0 +1,201 @@
+/* General Body and Background */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white; /* White background as requested */
+  background-size: cover;
+  background-position: center;
+  color: #343a40; /* Dark text */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Ensure the body takes full height */
+  box-sizing: border-box;
+}
+
+section {
+  margin-top: 100px; /* To account for the fixed navbar */
+  text-align: center;
+  width: 100%;
+  flex: 1; /* Ensures section stretches to fill available space */
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: hwb(210 31% 0%);
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.content-wrapper {
+  margin-top: 60px; /* Adjust the margin to account for the fixed navbar height */
+}
+
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  margin: 0 30px; /* Increased margin between items for better spacing */
+  position: relative;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-list a:hover {
+  color: #ddd;
+}
+
+.logo {
+  height: 30px *5; /* Reduced logo size */
+  width: auto;
+  margin-right: 8px; /* Reduced margin between logo and text */
+  padding-left: 20px; /* Add padding to the left of the logo */
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: hwb(210 31% 0%);
+  min-width: 160px;
+  z-index: 1;
+  text-align: left;
+  border-radius: 5px;
+  top: 35px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: hwb(210 31% 0%);
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Headings and text */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+p {
+  font-size: 1.2rem;
+  background-color: #343a40;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 10px; /* Reduce margin to bring elements closer */
+}
+
+.no{
+  background-color:hwb(210 31% 0%);
+}
+
+.get-started-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Reduce top margin */
+}
+
+/* Feature Cards */
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+}
+
+.feature-card .icon {
+  font-size: 40px;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.feature-card a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.feature-card a:hover {
+  color: #0056b3;
+}
+
+/* Image Container - Adding Distance from Navbar */
+.image-container {
+  margin-top: 20px; /* Reduce top margin to bring closer to the text above */
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+.footer {
+  background-color: hwb(210 31% 0%);
+  color: white;
+  text-align: center;
+  padding: 5px 0;  /* Reduced padding to make the footer smaller */
+  font-size: 14px; /* Reduced font size for smaller text */
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+}
