@@ -10,7 +10,7 @@ import pdf2image
 # import PyMuPDF
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyB65UcOglTetGB7r8VzBZK5rw9o9iBh468")
+genai.configure(api_key="your api key here")
 
 
 def get_gemini_response(input, pdf_content, prompt):
