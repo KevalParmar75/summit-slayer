@@ -6,24 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TalentTuner</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!--    <script src="{{ url_for('static', filename='js/script.js') }}"></script>-->
+
     <script>
-        function startStreamlit() {
-  fetch('/start_streamlit')
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === 'Streamlit app started') {
-        // Check if window already exists
-        const existingWindow = window.open('', '_blank');
-        if (existingWindow && !existingWindow.closed) {
-          existingWindow.location.href = 'http://localhost:8501';
-        } else {
-          window.open('http://localhost:8501', '_blank');
+        function startStreamlit(module) {
+            fetch(`/start_streamlit/${module}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status.includes('started')) {
+                window.open('http://localhost:8501', '_blank');
+            } else {
+                console.log('Module is already running:', data.status);
+            }
+        })
+        .catch(error => console.error('Error:', error));
         }
-      }
-    });
-}
-        // Copy email to clipboard function
+
+        function stopStreamlit(module) {
+            fetch(`/stop_streamlit/${module}`)
+                .then(response => response.json())
+                .then(data => alert(data.status))
+                .catch(error => console.error('Error:', error));
+        }
+
         function copyToClipboard(text) {
             const dummy = document.createElement('textarea');
             document.body.appendChild(dummy);
@@ -33,7 +38,6 @@
             document.body.removeChild(dummy);
             alert('Email copied to clipboard: ' + text);
         }
-
     </script>
 </head>
 
@@ -56,7 +60,6 @@
         </div>
     </nav>
 
-
     <!-- Main Content Section -->
     <section class="bg-light pt-5 text-center">
         <div class="container">
@@ -78,38 +81,38 @@
             <!-- Feature Cards Section -->
             <div class="features-container">
                 <div class="feature-card">
-                    <div class="icon">&#x1F4BB;</div> <!-- Example icon -->
-                    <h3>Resume review with AI</h3>
+                    <div class="icon">&#x1F4BB;</div>
+                    <h3>Resume Review with AI</h3>
                     <p>Ensure that your resume is optimized for clarity, relevance, and impact</p>
-                    <button onclick="startStreamlit()">Open Streamlit App</button>
-                    <!-- <iframe id="streamlit-frame" src="http://localhost:8501" width="100%" height="800px" -->
-                        <!-- style="display:none;"></iframe> -->
-                    <!-- <a href="login.html">Learn More</a> -->
-
+                    <button onclick="startStreamlit('resumereview')">Start Resume AI</button>
+                    <button onclick="stopStreamlit('resumereview')">Stop Resume AI</button>
                 </div>
 
                 <div class="feature-card">
-                    <div class="icon">&#x1F916;</div> <!-- Example icon -->
-                    <h3>Code review with AI</h3>
+                    <div class="icon">&#x1F916;</div>
+                    <h3>Code Review with AI</h3>
                     <p>Improve code quality by analyzing structure, efficiency, and potential errors</p>
-                    <a href="login.html">codereview</a>
+                    <button onclick="startStreamlit('codereview')">Start Code Review</button>
+                    <button onclick="stopStreamlit('codereview')">Stop Code Review</button>
                 </div>
+
                 <div class="feature-card">
-                    <div class="icon">&#x1F4E5;</div> <!-- Example icon -->
-                    <h3>LinkedIn review</h3>
+                    <div class="icon">&#x1F4E5;</div>
+                    <h3>LinkedIn Review</h3>
                     <p>Enhance your profile by analyzing content, keywords, and overall presentation</p>
                     <a href="login.html">Learn More</a>
+                    <p>Currently working on it...</p>
                 </div>
             </div>
         </div>
+
         <!-- Centered Text Content -->
         <div class="row content-center">
-            <p>In today's competitve landscape, standing out is crucial. Our AI-powered app simplifies career growth by
-                offering smart resume reviews, code assessments, and Linkedin optimization.
-                Beyond that, it connects students with industry professionals, brindging the gap between talent
+            <p>In today's competitive landscape, standing out is crucial. Our AI-powered app simplifies career growth by
+                offering smart resume reviews, code assessments, and LinkedIn optimization.
+                Beyond that, it connects students with industry professionals, bridging the gap between talent
                 and opportunity.</p>
         </div>
-
     </section>
 
     <!-- Footer Section -->
